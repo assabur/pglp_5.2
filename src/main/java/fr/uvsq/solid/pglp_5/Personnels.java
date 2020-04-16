@@ -37,11 +37,35 @@ public final class  Personnels implements Interface_Personnel,Serializable  {
 		 private String nom;
 		 private String prenom;
 		 private String fonction;
+		 private int age;
 		 private LocalDateTime date_naiss;
 		 private ArrayList<Integer> telephone =new ArrayList<Integer>();
 		 
 		
-		 /*
+		 public int getId() {
+			return id;
+		}
+		 public int getAge() {
+				return age;
+			}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getFonction() {
+			return fonction;
+		}
+
+		public void setFonction(String fonction) {
+			this.fonction = fonction;
+		}
+
+		public String getNom() {
+			return nom;
+		}
+
+		/*
 		  * pour changer le nom
 		  */
 		public void setNom(String nom) {
