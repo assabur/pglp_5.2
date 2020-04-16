@@ -4,7 +4,7 @@ package fr.uvsq.solid.pglp_5;
  */
 public abstract class DAO<T> 
 {
-	public abstract T create (Personnels obj);
+	public abstract int create (Personnels obj);
 	public abstract T find (int id);
 	public abstract void update (int obj);
 	public abstract void delete(T obj);

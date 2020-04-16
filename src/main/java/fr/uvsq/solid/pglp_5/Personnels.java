@@ -36,7 +36,14 @@ public final class  Personnels implements Interface_Personnel,Serializable  {
 		 private int id;
 		 private String nom;
 		 private String prenom;
-		 private String fonction;
+		 public String getPrenom() {
+			return prenom;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+		private String fonction;
 		 private int age;
 		 private LocalDateTime date_naiss;
 		 private ArrayList<Integer> telephone =new ArrayList<Integer>();
