@@ -20,11 +20,10 @@ public class PersonnelDao extends DAO<Personnels>
 		try 
 		{
 			
-		PreparedStatement prepare=conn.getConn().prepareStatement("insert into personne (nom,prenom,age) values(?,?,?)"); 
-
-		prepare.setString(1,obj.getNom());
-		prepare.setInt(3, obj.getAge());
-		prepare.setString(2, obj.getPrenom());
+		PreparedStatement prepare=conn.getConn().prepareStatement("insert into PERSONNE (id,nom,prenom) values(?,?,?)"); 
+		prepare.setInt(1, obj.getId());
+		prepare.setString(2,obj.getNom());		
+		prepare.setString(3, obj.getPrenom());		
 		return prepare.executeUpdate();
 		
 		} 
@@ -47,7 +46,7 @@ public class PersonnelDao extends DAO<Personnels>
 		try
 		{
 			PreparedStatement prepare=conn.getConn().prepareStatement(
-					"SELECT * FROM personne WHERE id=?");
+					"SELECT * FROM PERSONNE WHERE id=?");
 			prepare.setLong(1, id);
 			ResultSet result=prepare.executeQuery();
 			if(result.first())

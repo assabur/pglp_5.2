@@ -7,6 +7,8 @@ public class DbConnection {
 	private static final String DRIVER="org.apache.derby.jdbc.EmbeddedDriver";
 	private Connection conn;
 	
+	//connect 'jdbc:derby:F:\EclipseProjects\patron_conception\pglp_5.2\PersonneDB';
+	
 	/*
 	 * constructeur permettant de se connecter directemeent à la base de données
 	 */
@@ -14,7 +16,7 @@ public class DbConnection {
 	{
 		try {
 			
-				Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+				Class.forName(DRIVER);
 			
 			this.conn=DriverManager.getConnection(JDBC_URL);
 			if (this.conn!=null)
