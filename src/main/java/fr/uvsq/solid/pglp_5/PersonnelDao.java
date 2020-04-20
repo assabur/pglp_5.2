@@ -12,6 +12,7 @@ public class PersonnelDao extends DAO<Personnels>
 	{
 		super.conn=DbConnection.connection();
 	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see fr.uvsq.solid.pglp_5.DAO#create(fr.uvsq.solid.pglp_5.Personnels)
@@ -19,6 +20,7 @@ public class PersonnelDao extends DAO<Personnels>
 	@Override
 	public int create (Personnels obj) 
 	{	
+		Flash.affiche("jj");
 		 
 		try 
 		{
@@ -66,10 +68,28 @@ public class PersonnelDao extends DAO<Personnels>
 		return p;
 		
 	}
-	@Override
 	
-	public void update(int id) 
+	@Override
+	public int update(int id,String nom,String prenom) 
 	{		
+		DbConnection conn=new DbConnection();
+		Personnels p=new Personnels.Builder(0, "", "").build();
+		try
+		{
+			PreparedStatement prepare =this.conn.prepareStatement(
+					"update personne set nom=?,prenom=? where id=?"
+				   );
+			prepare.setString(1, nom);
+			prepare.setString(2, prenom);
+			prepare.setLong(3, id);
+			return prepare.executeUpdate();	
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}	
+		return 0;
 	}
 
 	@Override

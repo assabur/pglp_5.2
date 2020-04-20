@@ -21,16 +21,16 @@ public class DbConnection {
 			conn=DriverManager.getConnection(JDBC_URL);
 			if (conn!=null)
 			{
-				System.out.println("connexion au serveur de Bd reuissi");
+				Flash.affiche("connexion au serveur de Bd reuissi");
 			}
 		} catch (SQLException e )
 		{
-			System.out.println("echec de connexion");
+			Flash.affiche("echec de connexion");
 		}
 		catch (ClassNotFoundException e) 
 		{
-	        System.out.println(e.getMessage());
-	        System.out.println("ERREUR : charger derby.jdbc.EmbeddedDriver ");	       
+			Flash.affiche(e.getMessage());
+			Flash.affiche("ERREUR : charger derby.jdbc.EmbeddedDriver ");	       
 	    }
 		return conn;
 	}		

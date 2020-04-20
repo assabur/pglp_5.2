@@ -10,6 +10,6 @@ public abstract class DAO<T>
 	public Connection conn;
 	public abstract int create (Personnels obj);
 	public abstract T find (int id);
-	public abstract void update (int obj);
+	public abstract int update (int obj,String nom,String prenom);
 	public abstract void delete(T obj);
 }
