@@ -19,10 +19,10 @@ public class DbConnection {
 			
 			Class.forName(DRIVER);			
 			conn=DriverManager.getConnection(JDBC_URL);
-			if (conn!=null)
+		/*	if (conn!=null)
 			{
 				Flash.affiche("connexion au serveur de Bd reuissi");
-			}
+			}*/
 		} catch (SQLException e )
 		{
 			Flash.affiche("echec de connexion");

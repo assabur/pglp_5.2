@@ -20,7 +20,6 @@ public class PersonnelDao extends DAO<Personnels>
 	@Override
 	public int create (Personnels obj) 
 	{	
-		Flash.affiche("jj");
 		 
 		try 
 		{
@@ -93,7 +92,22 @@ public class PersonnelDao extends DAO<Personnels>
 	}
 
 	@Override
-	public void delete(Personnels obj) 
+	public int delete(int id) 
 	{
+		DbConnection conn=new DbConnection();
+		Personnels p=new Personnels.Builder(0, "", "").build();
+		try
+		{
+			PreparedStatement prepare =this.conn.prepareStatement(
+					"delete from personne where id=?"
+				   );
+			prepare.setLong(1, id);
+			return prepare.executeUpdate();				
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}	
+		return 0;
     }
 }

@@ -11,5 +11,5 @@ public abstract class DAO<T>
 	public abstract int create (Personnels obj);
 	public abstract T find (int id);
 	public abstract int update (int obj,String nom,String prenom);
-	public abstract void delete(T obj);
+	public abstract int delete(int id);
 }
